@@ -6,6 +6,7 @@ from .pages.home import Home
 from .components.settings_modal import SettingsModal
 from .events.window_event import window_event
 from ..utilities.lol.game_acceptor import GameAcceptor
+from ..utilities.icon.set_icon import Icon
 
 
 class ZoeApp:
@@ -18,6 +19,7 @@ class ZoeApp:
         """
         #! Add languae updated without restart app in the future
         self.page = page
+        Icon.set_icon('assets/icon.ico')  # Set the icon of the window
 
         # App settings
         self.page.title = 'Zoe v1.0.2'
@@ -36,7 +38,6 @@ class ZoeApp:
 
         # Set dark mode
         self.page.theme_mode = ft.ThemeMode.DARK
-
         # Load home page
         self.home = Home(self.page)
 
