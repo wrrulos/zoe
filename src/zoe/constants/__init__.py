@@ -1,4 +1,4 @@
-VERSION: str = 'v1.0.2'
+VERSION: str = 'v1.0.3'
 ZOE_IMAGE_COLOR_PATH: str = 'assets/images/zoe-color.jpg'
 ZOE_IMAGE_BW_PATH: str = 'assets/images/zoe-bw.jpg'  # BW = Black and white
 DEFAULT_SEARCH_INTERVAL: int = 2

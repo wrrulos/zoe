@@ -22,7 +22,7 @@ class ZoeApp:
         Icon.set_icon('assets/icon.ico')  # Set the icon of the window
 
         # App settings
-        self.page.title = 'Zoe v1.0.2'
+        self.page.title = 'Zoe v1.0.3'
         self.page.window_width = 550
         self.page.window_height = 650
         self.page.window_icon = 'assets/images/zoe-bw.jpg'
