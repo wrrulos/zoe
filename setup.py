@@ -11,7 +11,7 @@ if sys.platform == 'win32':  # Set base to Win32GUI if the platform is Windows
 class AppSettings:
     PYTHON_SCRIPT = './main.pyw'
     PRODUCT_NAME = 'Zoe'
-    PRODUCT_VERSION = '1.0.0'
+    PRODUCT_VERSION = '1.0.2'
     COMPANY_NAME = 'Zoe'
     PRODUCT_DESCRIPTION = 'An open-source program to make life easier for League of Legends players'
     UPGRADE_CODE = '{2227b4ab-197e-4a33-966e-b6859122bea4}'

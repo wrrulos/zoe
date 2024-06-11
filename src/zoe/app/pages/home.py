@@ -114,7 +114,7 @@ class Home:
 
         return ft.ElevatedButton(
             text=translate_message(key='porofessorButton'),
-            on_click=lambda e: webbrowser.open(f'https://porofessor.gg/live/{get_config_value("profile.region")}/{get_config_value("profile.username")}{get_config_value("profile.tag").replace("#", "-")}'),
+            on_click=self.open_porofessor,
             visible=get_config_value('enablePorofessor')
         )
 
@@ -151,6 +151,17 @@ class Home:
             controls=[github_button, discord_button, youtube_button],
             alignment=ft.MainAxisAlignment.CENTER
         )
+
+    def open_porofessor(self, e: ft.ControlEvent) -> None:
+        """
+        Opens the Porofessor website in the default browser.
+
+        Args:
+            e (ft.ControlEvent): The event object
+        """
+
+        url: str = f'https://porofessor.gg/live/{get_config_value("profile.region")}/{get_config_value("profile.username")}{get_config_value("profile.tag").replace("#", "-")}'
+        webbrowser.open(url)
 
     def switch_game_acceptor_state(self, e: ft.ControlEvent):
         """

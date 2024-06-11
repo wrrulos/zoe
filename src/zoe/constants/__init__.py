@@ -1,7 +1,6 @@
-VERSION: str = 'v1.0.0'
+VERSION: str = 'v1.0.2'
 ZOE_IMAGE_COLOR_PATH: str = 'assets/images/zoe-color.jpg'
 ZOE_IMAGE_BW_PATH: str = 'assets/images/zoe-bw.jpg'  # BW = Black and white
-PEM_FILE_PATH: str = 'assets/certificates/riotgames.pem'
 DEFAULT_SEARCH_INTERVAL: int = 2
 
 # Urls

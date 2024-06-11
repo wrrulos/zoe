@@ -20,7 +20,7 @@ class ZoeApp:
         self.page = page
 
         # App settings
-        self.page.title = 'Zoe v1.0.0'
+        self.page.title = 'Zoe v1.0.2'
         self.page.window_width = 550
         self.page.window_height = 650
         self.page.window_icon = 'assets/images/zoe-bw.jpg'
