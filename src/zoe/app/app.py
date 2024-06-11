@@ -34,6 +34,9 @@ class ZoeApp:
         # Window event
         self.page.on_window_event = partial(window_event, page=self.page)
 
+        # Set dark mode
+        self.page.theme_mode = ft.ThemeMode.DARK
+
         # Load home page
         self.home = Home(self.page)
 
