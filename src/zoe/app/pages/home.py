@@ -114,7 +114,7 @@ class Home:
 
         return ft.ElevatedButton(
             text=translate_message(key='porofessorButton'),
-            on_click=lambda e: webbrowser.open(f'https://porofessor.gg/live/{get_config_value("profile.region")}/{get_config_value("profile.username").replace("#", "-")}'),
+            on_click=lambda e: webbrowser.open(f'https://porofessor.gg/live/{get_config_value("profile.region")}/{get_config_value("profile.username")}{get_config_value("profile.tag").replace("#", "-")}'),
             visible=get_config_value('enablePorofessor')
         )
 
