@@ -1,0 +1,15 @@
+{
+    "enablePorofessor": false,
+    "enableAdvancedSettings": false,
+    "language": "es",
+    "profile": {
+        "region": "las",
+        "username": "",
+        "tag": ""
+    },
+    "search": {
+        "imagePath": "./assets/images/accept_button.png",
+        "confidence": 0.9,
+        "interval": "2"
+    }
+}

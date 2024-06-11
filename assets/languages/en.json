@@ -1,0 +1,27 @@
+{
+    "appBar": {
+        "settings": {
+            "title": "Settings",
+            "enablePorofessor": "Enable Porofessor",
+            "region": "Region",
+            "username": "Summoner Name",
+            "tag": "#TAG",
+            "enableAdvancedSettings": "Enable Advanced Settings",
+            "searchImageConfidence": "Image Search Confidence",
+            "searchInterval": "Search Interval",
+            "enterValidInteger": "Please enter a valid integer",
+            "enterValidFloat": "Please enter a valid float",
+            "language": "Language",
+            "close": "Close"
+        },
+        "about": {
+            "title": "About",
+            "author": "Pedro Agustín Vega (wrrulos)",
+            "description": "An open-source program to make life easier for League of Legends players",
+            "version": "App Version",
+            "sourceCode": "Source Code",
+            "close": "Close"
+        }
+    },
+    "porofessorButton": "Open Porofessor"
+}
