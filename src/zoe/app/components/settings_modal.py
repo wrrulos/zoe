@@ -17,6 +17,7 @@ class SettingsModal:
         self.region_dropdown = self.create_region_dropdown()
         self.username_textfield = self.create_username_textfield()
         self.tag_textfield = self.create_tag_textfield()
+        self.row = self.create_row()
         self.advanced_settings_checkbox = self.create_advanced_settings_checkbox()
         self.search_image_confidence_textfield = self.create_search_image_confidence_textfield()
         self.search_interval_textfield = self.create_search_interval_textfield()
@@ -24,12 +25,13 @@ class SettingsModal:
 
         self.settings_modal = ft.AlertDialog(
             title=ft.Text(
-                value=translate_message(key='appBar.settings.title')
+                value=translate_message(key='appBar.settings.title'),
+                width=300
             ),
             content=ft.Column([
                 self.enable_porofessor_checkbox,
                 self.region_dropdown,
-                ft.Row(spacing=3, controls=[self.username_textfield, self.tag_textfield]),
+                self.row,
                 self.advanced_settings_checkbox,
                 self.search_image_confidence_textfield,
                 self.search_interval_textfield,
@@ -113,7 +115,23 @@ class SettingsModal:
             label=translate_message(key='appBar.settings.tag'),
             value=get_config_value(key='profile.tag'),
             width=100,
-            on_change=self.update_tag,
+            on_change=self.validate_tag_input,
+            visible=self.enable_porofessor_checkbox.value
+        )
+
+    def create_row(self) -> ft.Row:
+        """
+        Create a row.
+
+        Returns:
+            ft.Row: The row object
+        """
+
+        return ft.Row(
+            controls=[
+                self.username_textfield,
+                self.tag_textfield
+            ],
             visible=self.enable_porofessor_checkbox.value
         )
 
@@ -218,6 +236,28 @@ class SettingsModal:
 
         e.control.update()
 
+    def validate_tag_input(self, e: ft.ControlEvent) -> None:
+        """
+        Validate the input of the tag textfield.
+
+        Args:
+            e (ft.ControlEvent): The event object
+        """
+
+        if len(e.control.value) == 0:
+            e.control.border_color = 'red'
+            e.control.update()
+            return
+
+        if e.control.value[0] != '#':
+            e.control.border_color = 'red'
+            e.control.update()
+            return
+
+        e.control.border_color = None
+        e.control.update()
+        self.update_tag(e)
+
     def toggle_porofessor(self, e: ft.ControlEvent) -> None:
         """
         Toggle the porofessor settings
@@ -229,6 +269,7 @@ class SettingsModal:
         self.region_dropdown.visible = self.enable_porofessor_checkbox.value
         self.username_textfield.visible = self.enable_porofessor_checkbox.value
         self.tag_textfield.visible = self.enable_porofessor_checkbox.value
+        self.row.visible = self.enable_porofessor_checkbox.value
         set_config_value(key='enablePorofessor', value=self.enable_porofessor_checkbox.value)
         self.page.update()
 
@@ -264,10 +305,12 @@ class SettingsModal:
         """
 
         if len(e.control.value) == 0:
-            e.control.error_text = ' '
+            e.control.border_color = 'red'
             e.control.update()
             return
 
+        e.control.border_color = None
+        e.control.update()
         set_config_value(key='profile.username', value=e.control.value)
 
     def update_tag(self, e: ft.ControlEvent) -> None:
@@ -277,16 +320,6 @@ class SettingsModal:
         Args:
             e (ft.ControlEvent): The event object
         """
-
-        if len(e.control.value) == 0:
-            e.control.error_text = ' '
-            e.control.update()
-            return
-
-        if e.control.value[0] != '#':
-            e.control.error_text = ' '
-            e.control.update()
-            return
 
         set_config_value(key='profile.tag', value=e.control.value)
 
